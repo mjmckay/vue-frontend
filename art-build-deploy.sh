@@ -16,10 +16,10 @@ artiUrl="$1"
 #setup npm locally
 curl -u admin:password http://${artiUrl}:80/artifactory/api/npm/auth > ~/.npmrc
 echo "email = youremail@email.com" >> ~/.npmrc
-npm config set registry http://${artiUrl}/artifactory/api/npm/npm-libs-local/
+npm config set registry http://${artiUrl}/artifactory/api/npm/demo-npm-virtual/
 
 # remove existing artifact
-curl -uadmin:password -XDELETE http://${artiUrl}:80/artifactory/npm-libs-local/frontend/-/frontend-3.0.0.tgz
+curl -uadmin:password -XDELETE http://${artiUrl}:80/artifactory/demo-npm-virtual/frontend/-/frontend-3.0.0.tgz
 
 # build and publish
 npm i && npm run build &&  npm publish
